@@ -8,12 +8,33 @@
 
 :root {
     /* colors */
-    --color-alpha-light: MEDIUMSLATEBLUE;
-    --color-alpha: SLATEBLUE;
+    --color-alpha-light-xxs: #F0F0F7;
+    --color-alpha-light-xs: #EBEBF2;
+    --color-alpha-light-x: #D7DAE2;
+    --color-alpha-light: #BCBCCB;
+    --color-alpha: #A5A4BF;
+    --color-alpha-dark: #808495;
+    --color-alpha-dark-x: #4D4F5C;
+    --color-alpha-dark-xs: #43425D;
+    --color-alpha-dark-xxs: #3B3B53;
 
-    --color-neutral-light: LIGHTSLATEGRAY;
-    --color-neutral: SLATEGRAY;
-    --color-neutral-dark: DARKSLATEGRAY;
+    --color-green: #3CC480;
+    --color-light-red: #FF6565;
+    --color-blue: #3B86FF;
+    --color-purple: #A3A0FB;
+    --color-light-blue: #54D8FF;
+
+    --global-text-color: var(--color-alpha-dark-xs);
+    --global-text-color-util: #FFFFFF;
+
+    /* white-space */
+    --global-baseline: 5px;
+    --global-whitespace-xxs: var(--global-baseline);
+    --global-whitespace-xs: calc(var(--global-baseline) * 2);
+    --global-whitespace-sm: calc(var(--global-baseline) * 3);
+    --global-whitespace-md: calc(var(--global-baseline) * 4);
+    --global-whitespace-lg: calc(var(--global-baseline) * 5);
+    --global-whitespace-xl: calc(var(--global-baseline) * 6);
 
     /* Shadows */
 
@@ -36,7 +57,7 @@
 html {
     font-size: 16px;
     line-height: 1.5;
-    font-family: Helvetica, arial, sans-serif;
+    font-family: 'Source Sans Pro', Helvetica, arial, sans-serif;
     color: var(--color-neutral-dark);
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
@@ -98,20 +119,20 @@ h3 {
 
 h1 {
     font-size: 36px;
-    line-height: 48px;
-    margin: 0 0 24px;
+    line-height: calc(var(--global-baseline) * 10);
+    margin: 0 0 var(--global-whitespace-md);
 }
 
 h2 {
     font-size: 32px;
-    line-height: 40px;
-    margin: 0 0 24px;
+    line-height: calc(var(--global-baseline) * 8);
+    margin: 0 0 var(--global-whitespace-lg);
 }
 
 h3 {
     font-size: 26px;
-    line-height: 32px;
-    margin: 0 0 24px;
+    line-height: calc(var(--global-baseline) * 6);
+    margin: 0 0 var(--global-whitespace-md);
 }
 
 h4,
@@ -119,8 +140,8 @@ h5,
 h6 {
     font-size: 16px;
     font-weight: 600;
-    line-height: 24px;
-    margin: 0 0 24px;
+    line-height: calc(var(--global-baseline) * 5);
+    margin: 0 0 var(--global-whitespace-md);
 }
 
 p,
@@ -130,7 +151,7 @@ dl,
 table,
 address,
 figure {
-    margin: 0 0 24px;
+    margin: 0 0 var(--global-whitespace-md);
 }
 
 ul,
@@ -294,6 +315,52 @@ input::placeholder {
     ---
     Website main logo
 */
+.c-logo {
+    color: var(--global-text-color-util);
+    font-size: calc(var(--global-baseline) * 3);
+    line-height: calc(var(--global-baseline) * 4);
+    letter-spacing: 2px;
+}
+
+/*
+    Component: App
+    ---
+    Main app
+*/
+
+.c-app {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 260px auto;
+    grid-template-rows: 70px auto;
+    
+    /* background-color: rgb(139, 121, 121); */
+}
+
+.c-app__logo { 
+    grid-column: 1;
+    grid-row: 1;
+    background-color: var(--color-alpha-dark-xxs);
+}
+
+.c-app__topbar {
+    grid-column: 2;
+    grid-row: 1;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 8px;
+}
+
+.c-app__sidebar {
+    grid-column: 1;
+    grid-row: 2;
+    background-color: var(--color-alpha-dark-xs);
+}
+
+.c-app__main {
+    grid-column: 2;
+    grid-row: 2;
+    background-color:var(--color-alpha-light-xxs);
+}
 
 /*------------------------------------*\
 #UTILITIES
